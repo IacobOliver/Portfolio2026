@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iacob Alexander-Oliver — CV</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0a;
+    --card: #0e0e0e;
+    --card-border: #1a1a1a;
+    --text: #fafafa;
+    --text-secondary: #999999;
+    --text-muted: #555555;
+    --accent: #ffffff;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text);
+    background: #050505;
+    line-height: 1.55;
+    font-size: 12.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    background: var(--bg);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.8);
+    overflow: hidden;
+  }
+
+  @media print {
+    body { background: var(--bg); }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
+  }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 40px 48px 36px;
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .header-left h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .header-left .title {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .header-left .summary {
+    font-size: 12px;
+    color: var(--text-secondary);
+    max-width: 420px;
+    line-height: 1.65;
+  }
+
+  .header-right {
+    text-align: right;
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-shrink: 0;
+    padding-top: 6px;
+  }
+
+  .header-right a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .header-right a:hover { color: var(--text); }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  /* ── BODY ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 195px;
+    gap: 0;
+  }
+
+  .main { padding: 28px 32px 28px 48px; }
+
+  .sidebar {
+    background: var(--card);
+    padding: 28px 24px 28px 20px;
+    border-left: 1px solid var(--card-border);
+  }
+
+  /* ── SECTIONS ── */
+  .section-title {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--card-border);
+    display: inline-block;
+  }
+
+  .section { margin-bottom: 22px; }
+
+  /* ── EXPERIENCE ENTRY ── */
+  .entry { margin-bottom: 16px; }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .entry-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .entry-date {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .entry-company {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .entry-location { color: var(--text-muted); font-weight: 400; }
+
+  .entry ul { list-style: none; padding-left: 0; }
+
+  .entry li {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    margin-bottom: 3px;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .entry li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    background: var(--text-muted);
+    border-radius: 50%;
+  }
+
+  .entry li strong { color: var(--text); font-weight: 600; }
+
+  .tech-stack {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 5px;
+    font-style: italic;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── PROJECT ENTRY ── */
+  .project { margin-bottom: 12px; }
+
+  .project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .project-name a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .project-name a:hover { color: var(--text-secondary); }
+
+  .project-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 3px;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar .section-title { font-size: 8.5px; letter-spacing: 2.5px; }
+
+  .skill-group { margin-bottom: 14px; }
+
+  .skill-group-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+
+  .skill-tag {
+    font-size: 10px;
+    background: transparent;
+    border: 1px solid var(--card-border);
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: var(--text-secondary);
+  }
+
+  .edu-entry { margin-bottom: 12px; }
+
+  .edu-entry .edu-school {
+    font-family: 'Playfair Display', serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .edu-entry .edu-detail {
+    font-size: 10.5px;
+    color: var(--text-muted);
+  }
+
+  .lang-entry { margin-bottom: 6px; }
+
+  .lang-entry .lang-name {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .lang-entry .lang-level {
+    font-size: 10.5px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="header">
+    <div class="header-left">
+      <h1>Iacob Alexander-Oliver</h1>
+      <div class="title">Full Stack Developer</div>
+      <p class="summary">
+        Full stack developer with 3+ years of experience shipping production web applications
+        using Java/Spring Boot, React, and Angular. Team lead and mentor with a proven track record
+        delivering insurance-tech products, EU-funded civic tech platforms, and enterprise SaaS.
+        Passionate about clean architecture, DDD, and building tools that solve real problems.
+      </p>
+    </div>
+    <div class="header-right">
+      <div class="contact-item"><span>0770 801 845</span></div>
+      <div class="contact-item"><a href="mailto:olialexander08@gmail.com">olialexander08@gmail.com</a></div>
+      <div class="contact-item"><a href="https://github.com/IacobOliver">github.com/IacobOliver</a></div>
+      <div class="contact-item"><a href="https://linkedin.com/in/oliver-iacob-662b79287">linkedin.com/in/oliver-iacob</a></div>
+      <div class="contact-item"><a href="https://iacob-oliver.vercel.app">iacob-oliver.vercel.app</a></div>
+      <div class="contact-item"><span>Bucharest, Romania</span></div>
+    </div>
+  </header>
+
+  <div class="body">
+    <div class="main">
+
+      <div class="section">
+        <div class="section-title">Experience</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-role">Full Stack Developer</span>
+            <span class="entry-date">Jul 2025 &ndash; Present</span>
+          </div>
+          <div class="entry-company">Devista Consulting <span class="entry-location">&middot; Bucharest, Romania</span></div>
+          <ul>
+            <li>Built a <strong>backoffice dashboard</strong> for client management &mdash; client/consultant overviews, project-specific data, and interactive charts for business insights</li>
+            <li>Delivered key features for <strong>CampionPlus</strong> insurance app: integrated a new buy-travel-policies flow and revamped the buy-RCA flow via <strong>24Broker API</strong> integration</li>
+            <li>Created a <strong>WhatsApp chatbot</strong> (via Make.com) for customer support &mdash; role-aware and context-aware responses to reduce support team workload</li>
+            <li>Designed a <strong>data lake architecture</strong> pulling weekly data from 24Broker with automated cleaning, export pipelines, and PowerBI-ready output for executive dashboards</li>
+            <li>Instrumented the entire app with <strong>Google Analytics events</strong> to surface user behavior insights and identify conversion drop-off points</li>
+            <li>Managed <strong>CI/CD deployments</strong> across development, staging, and production environments; triaged and resolved production bugs</li>
+          </ul>
+          <div class="tech-stack">Java, Spring Boot, Angular, TypeScript, PostgreSQL, Ionic 8, Capacitor 7, Docker, AWS, Liquidbase, Make.com</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-role">Freelance Full Stack Developer</span>
+            <span class="entry-date">Dec 2022 &ndash; Jul 2025</span>
+          </div>
+          <div class="entry-company">CleanCodeDevelopment <span class="entry-location">&middot; Bucharest, Romania</span></div>
+          <ul>
+            <li>Led development of an EU-funded digital twin platform for Bucharest Sector 2, integrating PostGIS spatial data with Mapbox and real-time CO2 monitoring dashboards</li>
+            <li>Architected a project management SaaS following DDD principles &mdash; features role-based access, time tracking with legal compliance checks, automated contract generation, and budget planning</li>
+            <li>Built a full-stack e-learning platform (CleanCodeQuest) with CodeWars API integration, gamified leaderboards, admin panel, and automated attendance via Java scheduler</li>
+            <li>Mentored junior developers and served as team lead across multiple concurrent projects</li>
+          </ul>
+          <div class="tech-stack">Java, Spring Boot, React, TypeScript, PostgreSQL, PostGIS, Tailwind CSS, Docker, AWS, Flyway, Quartz</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-role">Full Stack Developer</span>
+            <span class="entry-date">Apr 2024 &ndash; Jul 2024</span>
+          </div>
+          <div class="entry-company">Magic Hub Romania <span class="entry-location">&middot; Bucharest, Romania</span></div>
+          <ul>
+            <li>Maintained and modernized legacy web applications built with PHP, HTML, and CSS</li>
+            <li>Developed a tattoo studio website with an advanced price configurator based on difficulty and options (magictattoo.ink)</li>
+            <li>Refactored and polished the Magic Academy landing page for improved UX and performance</li>
+            <li>Managed internship program and implemented new features from client/stakeholder requests</li>
+          </ul>
+          <div class="tech-stack">PHP, Laravel, JavaScript, CSS, Tailwind, HTML</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-role">Full Stack Developer (Training)</span>
+            <span class="entry-date">Dec 2022 &ndash; Mar 2024</span>
+          </div>
+          <div class="entry-company">Codecool Talent Hub <span class="entry-location">&middot; Bucharest, Romania</span></div>
+          <ul>
+            <li>Completed intensive full-stack developer program simulating real job environments with mentorship, pair programming, and code reviews</li>
+            <li>Built full-stack applications including a restaurant discovery platform and an anime tracking platform using Java, Spring Boot, React, and PostgreSQL</li>
+          </ul>
+          <div class="tech-stack">Java, Spring Boot, JavaScript, React, PostgreSQL</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Key Projects</div>
+
+        <div class="project">
+          <div class="project-name">CampionPlus &mdash; <a href="https://play.google.com/store/apps/details?id=ro.campion.client">Android</a> / <a href="https://apps.apple.com/ro/app/campion-plus/id6453123289">iOS</a></div>
+          <div class="project-desc">Insurance marketplace and digital wallet app for Campion Broker clients. Search, compare, and purchase insurance policies (travel, RCA), manage policy portfolios, and communicate directly with dedicated consultants.</div>
+        </div>
+
+        <div class="project">
+          <div class="project-name">Project Management Platform &mdash; <a href="https://pm.cleancode.ro">Live</a></div>
+          <div class="project-desc">DDD-based SaaS for teams to manage projects, work packages, and tasks. Features automated contracts, time-tracking with legal compliance, budget optimization, and Quartz-scheduled operations.</div>
+        </div>
+
+        <div class="project">
+          <div class="project-name">Primaria Sector 2 Digital Twin &mdash; <a href="https://decarbonare.cleancodeit.com">Live</a></div>
+          <div class="project-desc">EU-funded urban digital twin with real-time air quality monitoring, CO2 emission calculations, and future pollution scenario modeling. Built with PostGIS for spatial data storage and Mapbox for map visualization.</div>
+        </div>
+
+        <div class="project">
+          <div class="project-name">BraduLaw &mdash; <a href="https://bradu-law.ro">Live</a></div>
+          <div class="project-desc">Responsive law firm website with dynamic content, modern design, and cross-browser optimization. Hosted on Firebase.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sidebar">
+
+      <div class="section">
+        <div class="section-title">Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Languages</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Frontend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Angular</span>
+            <span class="skill-tag">Ionic</span>
+            <span class="skill-tag">Tailwind</span>
+            <span class="skill-tag">Mapbox</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Backend</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">REST APIs</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Data & Infrastructure</div>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">PostGIS</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Flyway</span>
+            <span class="skill-tag">Liquidbase</span>
+            <span class="skill-tag">Capacitor</span>
+            <span class="skill-tag">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">AI & Practices</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Claude Code</span>
+            <span class="skill-tag">MCP</span>
+            <span class="skill-tag">DDD</span>
+            <span class="skill-tag">Agile</span>
+            <span class="skill-tag">Code Review</span>
+            <span class="skill-tag">Mentoring</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Certifications</div>
+
+        <div class="edu-entry">
+          <div class="edu-school">Oracle Certified Associate</div>
+          <div class="edu-detail">Java SE 8 Programmer</div>
+          <div class="edu-detail">Jan 2026</div>
+        </div>
+
+        <div class="edu-entry">
+          <div class="edu-school">Anthropic AI Developer</div>
+          <div class="edu-detail">MCP, Agent Skills, Claude Code, Claude API</div>
+          <div class="edu-detail">Jul 2026</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Education</div>
+
+        <div class="edu-entry">
+          <div class="edu-school">Codecool Talent Hub</div>
+          <div class="edu-detail">Full Stack Developer</div>
+          <div class="edu-detail">Dec 2022 &ndash; Apr 2024</div>
+        </div>
+
+        <div class="edu-entry">
+          <div class="edu-school">&ldquo;George Calinescu&rdquo; Theoretical High School</div>
+          <div class="edu-detail">Math & Computer Science</div>
+          <div class="edu-detail">Sep 2018 &ndash; Jun 2022</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Languages</div>
+
+        <div class="lang-entry">
+          <div class="lang-name">Romanian</div>
+          <div class="lang-level">Native</div>
+        </div>
+
+        <div class="lang-entry">
+          <div class="lang-name">English</div>
+          <div class="lang-level">Professional Working</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
