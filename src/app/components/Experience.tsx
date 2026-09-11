@@ -4,26 +4,54 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    company: "Clean Code Quest",
+    company: "Devista Consulting",
     role: "Full Stack Developer",
-    period: "Dec 2022 — Present",
+    period: "Jul 2025 — Present",
+    location: "Bucharest, Romania",
     description: [
-      "Built and maintained e-learning platforms serving hundreds of users with interactive course content and progress tracking",
-      "Developed project management tools and digital twin platforms for municipal clients",
-      "Delivered multiple freelance projects from concept to production deployment",
+      "Built a backoffice dashboard for client management — client/consultant overviews, project-specific data, and interactive charts for business insights",
+      "Delivered key features for CampionPlus insurance app: integrated a new buy-travel-policies flow and revamped the buy-RCA flow via 24Broker API",
+      "Created a WhatsApp chatbot (via Make.com) for customer support with role-aware and context-aware responses",
+      "Designed a data lake architecture pulling weekly data from 24Broker with automated cleaning and PowerBI-ready output",
+      "Managed CI/CD deployments across development, staging, and production environments",
     ],
-    techs: ["React", "Next.js", "Java", "Spring Boot", "PostgreSQL", "Docker"],
+    techs: ["Java", "Spring Boot", "Angular", "TypeScript", "PostgreSQL", "Ionic", "Capacitor", "Docker", "AWS"],
+  },
+  {
+    company: "CleanCodeDevelopment",
+    role: "Freelance Full Stack Developer",
+    period: "Dec 2022 — Jul 2025",
+    location: "Bucharest, Romania",
+    description: [
+      "Led development of an EU-funded digital twin platform for Bucharest Sector 2 with PostGIS spatial data and real-time CO2 monitoring",
+      "Architected a project management SaaS following DDD principles — role-based access, time tracking, automated contract generation, budget planning",
+      "Built a full-stack e-learning platform (CleanCodeQuest) with CodeWars API integration, gamified leaderboards, and admin panel",
+      "Mentored junior developers and served as team lead across multiple concurrent projects",
+    ],
+    techs: ["Java", "Spring Boot", "React", "TypeScript", "PostgreSQL", "PostGIS", "Tailwind", "Docker", "AWS"],
   },
   {
     company: "Magic Hub Romania",
     role: "Full Stack Developer",
     period: "Apr 2024 — Jul 2024",
+    location: "Bucharest, Romania",
     description: [
-      "Maintained and improved legacy websites, ensuring stability and performance",
-      "Implemented new features and UI improvements based on client requirements",
-      "Managed internship programs, mentoring junior developers in web development fundamentals",
+      "Developed a tattoo studio website with an advanced price configurator based on difficulty and options",
+      "Maintained and modernized legacy web applications built with PHP, HTML, and CSS",
+      "Managed internship program and implemented new features from client/stakeholder requests",
     ],
-    techs: ["PHP", "HTML", "CSS", "JavaScript"],
+    techs: ["PHP", "Laravel", "JavaScript", "CSS", "Tailwind", "HTML"],
+  },
+  {
+    company: "Codecool Talent Hub",
+    role: "Full Stack Developer (Training)",
+    period: "Dec 2022 — Mar 2024",
+    location: "Bucharest, Romania",
+    description: [
+      "Completed intensive full-stack developer program simulating real job environments with mentorship, pair programming, and code reviews",
+      "Built full-stack applications including a restaurant discovery platform and an anime tracking platform",
+    ],
+    techs: ["Java", "Spring Boot", "JavaScript", "React", "PostgreSQL"],
   },
 ];
 
@@ -73,9 +101,14 @@ export default function Experience() {
                 {/* Timeline dot */}
                 <div className="absolute left-0 md:left-4 top-2 w-2 h-2 rounded-full bg-text-muted -translate-x-[3.5px]" />
 
-                <span className="text-text-muted text-xs tracking-[0.15em] uppercase font-sans">
-                  {exp.period}
-                </span>
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
+                  <span className="text-text-muted text-xs tracking-[0.15em] uppercase font-sans">
+                    {exp.period}
+                  </span>
+                  <span className="text-text-muted text-xs font-sans hidden sm:inline">
+                    · {exp.location}
+                  </span>
+                </div>
                 <h3 className="font-serif text-text-primary text-2xl md:text-3xl font-bold mt-2">
                   {exp.company}
                 </h3>

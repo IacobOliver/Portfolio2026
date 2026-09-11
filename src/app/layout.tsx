@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import CursorLight from "./components/CursorLight";
+import StarField from "./components/StarField";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -27,7 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <StarField />
+        <CursorLight />
+        {children}
+      </body>
     </html>
   );
 }

@@ -6,17 +6,22 @@ const expertiseCards = [
   {
     icon: "{ }",
     title: "Frontend Development",
-    techs: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    techs: ["React", "Angular", "Next.js", "TypeScript", "Ionic", "Tailwind CSS", "Mapbox"],
   },
   {
     icon: "< />",
     title: "Backend Development",
-    techs: ["Java", "Spring Boot", "Node.js", "PostgreSQL"],
+    techs: ["Java", "Spring Boot", "Laravel", "REST APIs", "PostgreSQL", "PostGIS"],
   },
   {
     icon: ">>_",
     title: "DevOps & Tools",
-    techs: ["Docker", "AWS", "Git", "CI/CD"],
+    techs: ["Docker", "AWS", "Git", "CI/CD", "Flyway", "Liquidbase", "Capacitor"],
+  },
+  {
+    icon: "⚡",
+    title: "AI & Practices",
+    techs: ["Claude Code", "MCP", "DDD", "Agile", "Code Review", "Mentoring"],
   },
 ];
 
@@ -57,22 +62,25 @@ export default function About() {
             variants={fadeUp}
           >
             <p className="text-text-secondary text-base md:text-lg leading-relaxed font-sans">
-              I&apos;m Oliver, a Full Stack Developer based in Bucharest,
-              Romania, with a passion for building clean, performant web
-              applications. I specialize in turning complex problems into
-              elegant, user-friendly solutions using modern frameworks and
-              best practices.
+              I&apos;m Oliver, a Full Stack Developer based in Bucharest, Romania, with
+              3+ years of experience shipping production web applications. I specialize
+              in Java/Spring Boot, React, and Angular — building everything from
+              insurance-tech products to EU-funded civic tech platforms and enterprise SaaS.
             </p>
             <p className="text-text-secondary text-base md:text-lg leading-relaxed font-sans mt-4">
-              From e-learning platforms to project management tools and digital
-              twin systems, I&apos;ve worked across diverse domains delivering
-              production-ready software. I value clean code, thoughtful
-              architecture, and continuous learning.
+              I&apos;m passionate about clean architecture, domain-driven design, and building
+              tools that solve real problems. As a team lead and mentor, I enjoy guiding
+              junior developers while continuously sharpening my own skills.
+            </p>
+            <p className="text-text-secondary text-base md:text-lg leading-relaxed font-sans mt-4">
+              I&apos;m also proficient with AI-assisted development — holding an Anthropic AI
+              Developer certification covering Claude Code, MCP, and Agent SDK. I leverage
+              these tools daily to accelerate my workflow and deliver higher quality code.
             </p>
           </motion.div>
 
           {/* Expertise cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             {expertiseCards.map((card, i) => (
               <motion.div
                 key={card.title}
