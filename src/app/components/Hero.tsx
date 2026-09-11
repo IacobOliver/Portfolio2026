@@ -3,18 +3,18 @@
 import { motion } from "framer-motion";
 
 const shootingStars = [
-  { top: "8%",  left: "70%", angle: 35,  duration: 1.0, delay: 0,  length: 100 },
-  { top: "20%", left: "40%", angle: 25,  duration: 1.3, delay: 2,  length: 130 },
-  { top: "55%", left: "80%", angle: 40,  duration: 0.9, delay: 4,  length: 90  },
-  { top: "35%", left: "55%", angle: 30,  duration: 1.1, delay: 6,  length: 110 },
-  { top: "75%", left: "30%", angle: 20,  duration: 1.4, delay: 8,  length: 140 },
-  { top: "15%", left: "90%", angle: 45,  duration: 0.8, delay: 1,  length: 80  },
-  { top: "45%", left: "60%", angle: 32,  duration: 1.2, delay: 3,  length: 120 },
-  { top: "65%", left: "15%", angle: 28,  duration: 1.0, delay: 5,  length: 100 },
-  { top: "10%", left: "25%", angle: 38,  duration: 1.1, delay: 7,  length: 110 },
-  { top: "85%", left: "50%", angle: 22,  duration: 1.3, delay: 9,  length: 130 },
-  { top: "30%", left: "85%", angle: 42,  duration: 0.9, delay: 1.5, length: 95  },
-  { top: "50%", left: "10%", angle: 18,  duration: 1.5, delay: 3.5, length: 140 },
+  { top: "8%",  left: "10%", angle: 25,  duration: 1.0, delay: 0,   length: 100 },
+  { top: "20%", left: "30%", angle: 35,  duration: 1.3, delay: 2,   length: 130 },
+  { top: "5%",  left: "50%", angle: 20,  duration: 0.9, delay: 4,   length: 90  },
+  { top: "35%", left: "5%",  angle: 30,  duration: 1.1, delay: 6,   length: 110 },
+  { top: "15%", left: "65%", angle: 40,  duration: 1.4, delay: 8,   length: 140 },
+  { top: "10%", left: "20%", angle: 22,  duration: 0.8, delay: 1,   length: 80  },
+  { top: "25%", left: "45%", angle: 32,  duration: 1.2, delay: 3,   length: 120 },
+  { top: "40%", left: "15%", angle: 28,  duration: 1.0, delay: 5,   length: 100 },
+  { top: "3%",  left: "75%", angle: 38,  duration: 1.1, delay: 7,   length: 110 },
+  { top: "30%", left: "55%", angle: 18,  duration: 1.3, delay: 9,   length: 130 },
+  { top: "12%", left: "40%", angle: 42,  duration: 0.9, delay: 1.5, length: 95  },
+  { top: "45%", left: "10%", angle: 15,  duration: 1.5, delay: 3.5, length: 140 },
 ];
 
 export default function Hero() {
@@ -31,22 +31,20 @@ export default function Hero() {
       {shootingStars.map((s, i) => (
         <motion.div
           key={i}
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none overflow-visible"
           style={{
             top: s.top,
             left: s.left,
-            width: s.length,
+            width: 1,
             height: 1,
             transform: `rotate(${s.angle}deg)`,
-            transformOrigin: "right center",
           }}
         >
           <motion.div
-            className="h-full bg-gradient-to-l from-white/50 via-white/15 to-transparent rounded-full"
+            className="absolute top-0 left-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-white/50 rounded-full"
             style={{ width: s.length }}
-            initial={{ x: 200, opacity: 0 }}
             animate={{
-              x: [200, -s.length * 6],
+              x: [-s.length, 800],
               opacity: [0, 0.8, 0.8, 0],
             }}
             transition={{
@@ -54,7 +52,7 @@ export default function Hero() {
               repeat: Infinity,
               repeatDelay: 6 + (i % 4) * 2,
               delay: s.delay,
-              ease: "easeIn",
+              ease: "linear",
             }}
           />
         </motion.div>

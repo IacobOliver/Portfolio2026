@@ -91,10 +91,8 @@ export default function About() {
                 variants={fadeUp}
                 className="bg-card-dark border border-border-card rounded-lg p-6 hover:border-text-muted/30 transition-colors duration-300"
               >
-                <span className="text-text-muted font-mono text-sm">
-                  {card.icon}
-                </span>
-                <h3 className="font-serif text-text-primary text-lg mt-3 font-semibold">
+                <h3 className="font-serif text-text-primary text-lg font-semibold flex items-center gap-3">
+                  <span className="text-text-muted font-mono text-sm">{card.icon}</span>
                   {card.title}
                 </h3>
                 <div className="flex flex-wrap gap-2 mt-3">
