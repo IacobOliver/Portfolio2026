@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 
@@ -45,21 +46,58 @@ export default function Projects() {
                 href={`/project/${project.slug}`}
                 className="block bg-card-dark border border-border-card rounded-lg overflow-hidden hover:border-text-muted/40 transition-colors duration-300"
               >
-                {/* Image placeholder */}
-                <div className="w-full aspect-video bg-gradient-to-br from-card-darker via-card-dark to-border-card relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-text-muted/30 font-serif text-2xl md:text-3xl font-bold">
-                      {project.title}
-                    </span>
-                  </div>
-                  <div
-                    className="absolute inset-0 opacity-[0.04]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-                      backgroundSize: "40px 40px",
-                    }}
-                  />
+                {/* Cover image */}
+                <div className="w-full aspect-video bg-card-darker relative overflow-hidden">
+                  {project.isMobile && project.images.length >= 3 ? (
+                    /* Mobile app: show 3 phone screens side by side */
+                    <div className="absolute inset-0 flex items-center justify-center gap-3 px-8 py-4 group-hover:scale-105 transition-transform duration-500">
+                      <div className="relative h-[90%] aspect-[9/19] rounded-xl overflow-hidden border-2 border-white/10 shadow-2xl -rotate-6 translate-y-2">
+                        <Image
+                          src={project.images[1]}
+                          alt={`${project.title} screen 1`}
+                          fill
+                          className="object-cover"
+                          sizes="180px"
+                          quality={70}
+                        />
+                      </div>
+                      <div className="relative h-[95%] aspect-[9/19] rounded-xl overflow-hidden border-2 border-white/15 shadow-2xl z-10">
+                        <Image
+                          src={project.images[0]}
+                          alt={`${project.title} screen 2`}
+                          fill
+                          className="object-cover"
+                          sizes="200px"
+                          quality={75}
+                        />
+                      </div>
+                      <div className="relative h-[90%] aspect-[9/19] rounded-xl overflow-hidden border-2 border-white/10 shadow-2xl rotate-6 translate-y-2">
+                        <Image
+                          src={project.images[2]}
+                          alt={`${project.title} screen 3`}
+                          fill
+                          className="object-cover"
+                          sizes="180px"
+                          quality={70}
+                        />
+                      </div>
+                    </div>
+                  ) : project.coverImage ? (
+                    <Image
+                      src={project.coverImage}
+                      alt={project.title}
+                      fill
+                      className="object-contain group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      quality={75}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-card-darker via-card-dark to-border-card">
+                      <span className="text-text-muted/30 font-serif text-2xl md:text-3xl font-bold">
+                        {project.title}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-6">

@@ -1,14 +1,169 @@
 "use client";
 
+import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../../data/projects";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
 };
+
+function ProjectGallery({ project }: { project: (typeof projects)[number] }) {
+  const [current, setCurrent] = useState(0);
+  const images = project.images;
+
+  if (!images || images.length === 0) {
+    return (
+      <section className="px-6 md:px-12 lg:px-20 pb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="max-w-6xl mx-auto"
+        >
+          <div className="w-full aspect-[16/9] bg-gradient-to-br from-card-darker via-card-dark to-border-card rounded-lg border border-border-card overflow-hidden relative">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-text-muted/20 font-serif text-3xl md:text-5xl font-bold">
+                {project.title}
+              </span>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+    );
+  }
+
+  const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
+  const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
+
+  // Mobile app: horizontal scrollable phone screens
+  if (project.isMobile) {
+    return (
+      <section className="px-6 md:px-12 lg:px-20 pb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="max-w-6xl mx-auto"
+        >
+          <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory">
+            {images.map((img, i) => (
+              <div
+                key={i}
+                className="relative flex-shrink-0 h-[500px] md:h-[600px] aspect-[9/19] rounded-2xl overflow-hidden border-2 border-white/10 bg-card-darker shadow-2xl snap-center"
+              >
+                <Image
+                  src={img}
+                  alt={`${project.title} screen ${i + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="280px"
+                  quality={80}
+                  priority={i === 0}
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+    );
+  }
+
+  // Desktop/web: standard carousel
+  return (
+    <section className="px-6 md:px-12 lg:px-20 pb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+        className="max-w-6xl mx-auto"
+      >
+        {/* Main image */}
+        <div className="w-full aspect-[16/9] bg-card-darker rounded-lg border border-border-card overflow-hidden relative group">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={images[current]}
+                alt={`${project.title} screenshot ${current + 1}`}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 1152px"
+                quality={80}
+                priority={current === 0}
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Navigation arrows */}
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={prev}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/80"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button
+                onClick={next}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/80"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </>
+          )}
+
+          {/* Image counter */}
+          {images.length > 1 && (
+            <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm text-white/80 text-xs px-3 py-1.5 rounded-full border border-white/10">
+              {current + 1} / {images.length}
+            </div>
+          )}
+        </div>
+
+        {/* Thumbnail strip */}
+        {images.length > 1 && (
+          <div className="flex gap-2 mt-3 overflow-x-auto pb-2">
+            {images.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`relative flex-shrink-0 w-20 h-14 rounded-md overflow-hidden border-2 transition-all duration-300 ${
+                  i === current
+                    ? "border-white/50 opacity-100"
+                    : "border-transparent opacity-40 hover:opacity-70"
+                }`}
+              >
+                <Image
+                  src={img}
+                  alt={`Thumbnail ${i + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="80px"
+                  quality={50}
+                />
+              </button>
+            ))}
+          </div>
+        )}
+      </motion.div>
+    </section>
+  );
+}
 
 export default function ProjectPage() {
   const params = useParams();
@@ -116,31 +271,8 @@ export default function ProjectPage() {
         </div>
       </section>
 
-      {/* Screenshot placeholder */}
-      <section className="px-6 md:px-12 lg:px-20 pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="max-w-6xl mx-auto"
-        >
-          <div className="w-full aspect-[16/9] bg-gradient-to-br from-card-darker via-card-dark to-border-card rounded-lg border border-border-card overflow-hidden relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-text-muted/20 font-serif text-3xl md:text-5xl font-bold">
-                {project.title}
-              </span>
-            </div>
-            <div
-              className="absolute inset-0 opacity-[0.03]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-                backgroundSize: "50px 50px",
-              }}
-            />
-          </div>
-        </motion.div>
-      </section>
+      {/* Project Images */}
+      <ProjectGallery project={project} />
 
       {/* Details */}
       <section className="px-6 md:px-12 lg:px-20 pb-24">

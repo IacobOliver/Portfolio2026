@@ -4,6 +4,9 @@ export interface Project {
   description: string;
   longDescription: string;
   techs: string[];
+  images: string[];
+  coverImage: string;
+  isMobile?: boolean;
   link: string;
   linkLabel: string;
   github?: string;
@@ -21,6 +24,15 @@ export const projects: Project[] = [
     longDescription:
       "CampionPlus is a comprehensive insurance marketplace mobile app built for Campion Broker's clients. The platform enables users to search, compare, and purchase insurance policies including travel and RCA (auto liability) insurance. Users can manage their entire policy portfolio, track renewals, and communicate directly with dedicated insurance consultants through the app.",
     techs: ["Java", "Spring Boot", "Angular", "Ionic", "Capacitor", "PostgreSQL", "TypeScript"],
+    images: [
+      "/images/projects/campionplus/campion4.webp",
+      "/images/projects/campionplus/campion5.webp",
+      "/images/projects/campionplus/campion7.webp",
+      "/images/projects/campionplus/campion6.webp",
+      "/images/projects/campionplus/campion1.webp",
+    ],
+    coverImage: "/images/projects/campionplus/campion4.webp",
+    isMobile: true,
     link: "https://play.google.com/store/apps/details?id=ro.campion.client",
     linkLabel: "Google Play",
     role: "Full Stack Developer at Devista Consulting",
@@ -40,6 +52,14 @@ export const projects: Project[] = [
     longDescription:
       "A comprehensive project management SaaS platform architected following Domain-Driven Design principles. The platform helps teams organize projects into work packages and tasks, with advanced features like automated contract generation when team members join projects, time-tracking with built-in legal working hour compliance checks, and intelligent budget planning and optimization tools.",
     techs: ["Java", "Spring Boot", "React", "TypeScript", "PostgreSQL", "Docker", "Flyway", "Quartz"],
+    images: [
+      "/images/projects/pm/pm1.jpg",
+      "/images/projects/pm/pm2.jpg",
+      "/images/projects/pm/pm3.jpg",
+      "/images/projects/pm/pm4.jpg",
+      "/images/projects/pm/pm5.jpg",
+    ],
+    coverImage: "/images/projects/pm/pm2.jpg",
     link: "https://pm.cleancode.ro",
     linkLabel: "View Live",
     role: "Lead Developer at CleanCodeDevelopment",
@@ -60,6 +80,15 @@ export const projects: Project[] = [
     longDescription:
       "An EU-funded digital twin platform for Sector 2 of Bucharest, creating a detailed virtual representation of the urban area. The platform integrates PostGIS spatial data with Mapbox visualizations to show buildings, parks, churches, and landmarks. Its primary focus is environmental monitoring — tracking real-time air quality, calculating CO2 emissions, and generating future pollution scenarios to help city planners make data-driven decisions for a cleaner, healthier district.",
     techs: ["Java", "Spring Boot", "React", "TypeScript", "PostgreSQL", "PostGIS", "Mapbox", "Docker", "AWS"],
+    images: [
+      "/images/projects/gis/gis1.jpg",
+      "/images/projects/gis/gis2.jpg",
+      "/images/projects/gis/gis3.jpg",
+      "/images/projects/gis/gis4.jpg",
+      "/images/projects/gis/gis5.jpg",
+      "/images/projects/gis/gis6.jpg",
+    ],
+    coverImage: "/images/projects/gis/gis1.jpg",
     link: "https://decarbonare.cleancodeit.com",
     linkLabel: "View Live",
     role: "Lead Developer at CleanCodeDevelopment",
@@ -80,6 +109,15 @@ export const projects: Project[] = [
     longDescription:
       "CleanCodeQuest is a comprehensive e-learning platform built for the CleanCode company to onboard and train new developers. The platform features structured learning modules organized into weeks with lessons that link to GitHub projects. It integrates with the CodeWars API for daily coding challenges (katas) selected by mentors, includes gamified leaderboards to encourage healthy competition, and has an automated attendance system powered by Java schedulers.",
     techs: ["Java", "Spring Boot", "React", "JavaScript", "PostgreSQL", "AWS"],
+    images: [
+      "/images/projects/CleanCodeAcademy/cleancode1.jpg",
+      "/images/projects/CleanCodeAcademy/cleancode2.jpg",
+      "/images/projects/CleanCodeAcademy/cleancode3.jpg",
+      "/images/projects/CleanCodeAcademy/cleancode4.jpg",
+      "/images/projects/CleanCodeAcademy/cleancode5.jpg",
+      "/images/projects/CleanCodeAcademy/cleancode6.jpg",
+    ],
+    coverImage: "/images/projects/CleanCodeAcademy/cleancode1.jpg",
     link: "https://quest.cleancode.ro",
     linkLabel: "View Live",
     role: "Full Stack Developer at CleanCodeDevelopment",
@@ -100,6 +138,16 @@ export const projects: Project[] = [
     longDescription:
       "Magic Tattoo is the online presence for a premier tattoo studio in Bucharest. The website showcases a diverse catalog of tattoo styles including neotraditional, portraits, and Polynesian art. Visitors can explore the gallery, learn about the qualified artists, and book tattoos or consultations. The standout feature is an advanced price configurator that calculates tattoo costs based on difficulty level, size, and selected customization options.",
     techs: ["JavaScript", "PHP", "Laravel", "MySQL", "Tailwind CSS"],
+    images: [
+      "/images/projects/magicTattoo/magic1.png",
+      "/images/projects/magicTattoo/magic2.png",
+      "/images/projects/magicTattoo/magic3.png",
+      "/images/projects/magicTattoo/magic4.png",
+      "/images/projects/magicTattoo/magic5.png",
+      "/images/projects/magicTattoo/magic6.png",
+      "/images/projects/magicTattoo/magic7.png",
+    ],
+    coverImage: "/images/projects/magicTattoo/magic1.png",
     link: "https://magictattoo.ink",
     linkLabel: "View Live",
     role: "Full Stack Developer at Magic Hub Romania",
@@ -119,9 +167,13 @@ export const projects: Project[] = [
     longDescription:
       "A professional presentation website built for a lawyer client, consisting of over 10 pages with comprehensive information about the legal practice. The site features a modern, responsive design with dynamic content management, cross-browser optimization, and is hosted on Firebase for reliable performance and easy deployment.",
     techs: ["JavaScript", "React", "Tailwind CSS", "Firebase"],
+    images: [
+      "/images/projects/braduLaw/0fe7d9b2-76ca-4374-b24c-b221073f84d7.jpg",
+      "/images/projects/braduLaw/b0a57bab-9c1a-4838-9919-608d0737fc82.jpg",
+    ],
+    coverImage: "/images/projects/braduLaw/0fe7d9b2-76ca-4374-b24c-b221073f84d7.jpg",
     link: "https://bradu-law.ro",
     linkLabel: "View Live",
-    github: "https://github.com/CleanCodeRo/bradu-law",
     role: "Freelance Developer",
     year: "2023",
     highlights: [
