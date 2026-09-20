@@ -69,8 +69,9 @@ export default function About() {
             </p>
             <p className="text-text-secondary text-base md:text-lg leading-relaxed font-sans mt-4">
               I&apos;m passionate about clean architecture, domain-driven design, and building
-              tools that solve real problems. As a team lead and mentor, I enjoy guiding
-              junior developers while continuously sharpening my own skills.
+              tools that solve real problems. As a mentor, I enjoy guiding junior developers
+              while continuously sharpening my own skills. I love new challenges and creating
+              new things — that&apos;s what keeps me locked in and where I do my best work.
             </p>
             <p className="text-text-secondary text-base md:text-lg leading-relaxed font-sans mt-4">
               I&apos;m also proficient with AI-assisted development — holding an Anthropic AI

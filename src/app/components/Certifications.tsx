@@ -149,6 +149,10 @@ export default function Certifications() {
                 <p className="font-serif text-text-primary font-semibold">English</p>
                 <p className="text-text-muted text-xs mt-1 font-sans">Professional Working</p>
               </div>
+              <div className="bg-card-dark border border-border-card rounded-lg p-4 flex-1">
+                <p className="font-serif text-text-primary font-semibold">German</p>
+                <p className="text-text-muted text-xs mt-1 font-sans">Beginner</p>
+              </div>
             </motion.div>
           </div>
         </div>
