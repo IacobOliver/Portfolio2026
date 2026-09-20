@@ -127,7 +127,7 @@ export default function Hero() {
             className="mt-6 md:mt-8 text-text-secondary text-base md:text-lg lg:text-xl max-w-xl font-sans leading-relaxed"
           >
             3+ years shipping production web apps with Java/Spring Boot, React &amp; Angular.
-            Team lead, mentor, and clean architecture enthusiast based in Bucharest, Romania.
+            AI enthusiast and clean architecture advocate, eager to create new things. Based in Bucharest, Romania.
           </motion.p>
 
           <motion.div
